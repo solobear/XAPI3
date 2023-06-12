@@ -489,3 +489,7 @@ CThostFtdcTraderApi *CThostFtdcTraderApi::CreateFtdcTraderApi(const char *pszFlo
 	return new MyClassCTP_SE();
 }
 
+const char* CThostFtdcTraderApi::GetApiVersion()
+{
+	return "v6.3.15_20190220 20:39:53";
+}
