@@ -246,3 +246,4 @@ $RECYCLE.BIN/
 
 # VSCode files
 .vscode
+.vs/
