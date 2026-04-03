@@ -110,7 +110,7 @@ public:
 	}
 
 	///注册用户终端信息，用于中继服务器多连接模式
-///需要在终端认证成功后，用户登录前调用该接口
+    ///需要在终端认证成功后，用户登录前调用该接口
 	virtual int RegisterUserSystemInfo(CThostFtdcUserSystemInfoField *pUserSystemInfo)
 	{
 		char buf[512] = { 0 };
@@ -212,44 +212,6 @@ public:
 
 	///资金账户口令更新请求
 	virtual int ReqTradingAccountPasswordUpdate(CThostFtdcTradingAccountPasswordUpdateField *pTradingAccountPasswordUpdate, int nRequestID) { return 0; }
-
-	///登录请求2
-	virtual int ReqUserLogin2(CThostFtdcReqUserLoginField *pReqUserLogin, int nRequestID)
-	{
-		char buf[512] = { 0 };
-		sprintf(buf, "ReqUserLogin2\n\n"
-			"BrokerID:%s\n"
-			"UserID:%s\n"
-			"Password:%s\n"
-			"UserProductInfo:%s\n"
-			"InterfaceProductInfo:%s\n"
-			"ProtocolInfo:%s\n"
-			"MacAddress:%s\n"
-			"OneTimePassword:%s\n"
-			"ClientIPAddress:%s\n"
-			"LoginRemark:%s\n"
-			"ClientIPPort:%d\n"
-			"已经复制到剪贴板",
-			pReqUserLogin->BrokerID,
-			pReqUserLogin->UserID,
-			pReqUserLogin->Password,
-			pReqUserLogin->UserProductInfo,
-			pReqUserLogin->InterfaceProductInfo,
-			pReqUserLogin->ProtocolInfo,
-			pReqUserLogin->MacAddress,
-			pReqUserLogin->OneTimePassword,
-			pReqUserLogin->ClientIPAddress,
-			pReqUserLogin->LoginRemark,
-			pReqUserLogin->ClientIPPort
-		);
-
-		ShowMessageBox(buf);
-
-		return 0;
-	}
-
-	///用户口令更新请求2
-	virtual int ReqUserPasswordUpdate2(CThostFtdcUserPasswordUpdateField *pUserPasswordUpdate, int nRequestID) { return 0; }
 
 	///查询用户当前支持的认证模式
 	virtual int ReqUserAuthMethod(CThostFtdcReqUserAuthMethodField *pReqUserAuthMethod, int nRequestID) { return 0; }
